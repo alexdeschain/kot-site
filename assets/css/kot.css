@@ -92,25 +92,35 @@ ul { margin: 0; padding: 0; list-style: none; }
     aspect-ratio: 2400 / 436;
     min-height: 150px;
 }
-/* live, clickable social icons placed over the illustration's built-in spot (top-left) */
+/* The social icons are part of the header illustration (baked into header.png).
+   We lay INVISIBLE clickable hotspots exactly over them — clean visuals + working links.
+   Positioned as % of the illustration so they track its responsive scaling. */
 .hero-social {
     position: absolute;
-    left: clamp(10px, 3.2vw, 46px);
-    bottom: clamp(8px, 2.4vw, 26px);
-    display: flex;
-    gap: clamp(6px, 1vw, 12px);
+    inset: 0;
     z-index: 3;
+    pointer-events: none;             /* only the hotspots themselves are clickable */
 }
+/* Each hotspot is centred on a baked icon. Coords measured from header.png:
+   centres at x = 3.71 / 6.83 / 9.96 / 13.04 % of width, vertical centre 78.4 %,
+   icon Ø ≈ 2.1 % of width. Hit area slightly larger for usability. */
 .hero-social a {
-    width: clamp(30px, 3.4vw, 46px);
-    height: clamp(30px, 3.4vw, 46px);
+    position: absolute;
+    top: 78.4%;
+    width: 3.2%;
+    aspect-ratio: 1 / 1;
+    transform: translate(-50%, -50%);
     border-radius: 50%;
-    display: grid; place-items: center;
-    background: var(--c-coral);
-    color: #fff; font-size: clamp(14px, 1.6vw, 20px);
-    box-shadow: var(--shadow-sm);
+    pointer-events: auto;
+    background: transparent;
+    transition: transform .15s ease, box-shadow .15s ease;
 }
-.hero-social a:hover { transform: translateY(-3px); color: #fff; filter: brightness(1.05); }
+.hero-social a:nth-child(1) { left: 3.71%; }
+.hero-social a:nth-child(2) { left: 6.83%; }
+.hero-social a:nth-child(3) { left: 9.96%; }
+.hero-social a:nth-child(4) { left: 13.04%; }
+.hero-social a:hover { transform: translate(-50%, -50%) scale(1.18); box-shadow: 0 0 0 3px rgba(255,255,255,.6); }
+.hero-social a i { display: none; }   /* glyphs come from the baked image, hide FA icons */
 
 /* Sticky nav bar that lives just under the illustration; becomes fixed mini-header on scroll */
 .nav {
@@ -202,13 +212,25 @@ ul { margin: 0; padding: 0; list-style: none; }
     display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px;
 }
 .partner {
-    background: #fff; border-radius: 18px; aspect-ratio: 3 / 2;
-    display: grid; place-items: center; padding: 22px; box-shadow: var(--shadow-sm);
+    background: #fff; border-radius: 18px;
+    height: 132px;                       /* uniform card height — every logo gets the same box */
+    display: grid; place-items: center; padding: 20px 22px; box-shadow: var(--shadow-sm);
+    overflow: hidden;                    /* hard-clip: nothing escapes the card */
     transition: transform .2s, box-shadow .2s;
 }
 .partner:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
-.partner img { max-height: 100%; max-width: 100%; width: auto; object-fit: contain;
-               filter: none; }
+/* cap BOTH dimensions so logos read at a consistent visual size regardless of source aspect/resolution */
+.partner img {
+    max-height: 64px;                    /* fixed ink-height → no more giant "Ю" / full-bleed marks */
+    max-width: 100%;
+    width: auto; height: auto;
+    object-fit: contain;
+    /* unify visually mismatched logos: muted greyscale at rest, full colour on hover (tok.media style) */
+    filter: grayscale(100%);
+    opacity: .68;
+    transition: filter .25s ease, opacity .25s ease;
+}
+.partner:hover img { filter: grayscale(0%); opacity: 1; }
 
 /* =========================================================================
    SOCIAL
