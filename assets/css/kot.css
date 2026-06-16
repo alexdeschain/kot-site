@@ -133,8 +133,11 @@ ul { margin: 0; padding: 0; list-style: none; }
     gap: 8px; padding: 18px 0;
     position: relative;
 }
-.nav__logo { display: none; align-items: center; gap: 10px; position: absolute; left: 22px; }
-.nav__logo img { height: 38px; width: auto; }
+/* coral pill behind the white logo so it stays visible on the light sticky bar */
+.nav__logo { display: none; align-items: center; gap: 10px; position: absolute; left: 22px;
+             background: var(--c-coral); padding: 7px 14px; border-radius: 999px;
+             box-shadow: var(--shadow-sm); }
+.nav__logo img { height: 30px; width: auto; }
 .nav__links { display: flex; gap: clamp(14px, 2vw, 34px); align-items: center; flex-wrap: wrap; justify-content: center; }
 .nav__links a {
     font-family: var(--font-head); font-weight: 800; text-transform: uppercase;
