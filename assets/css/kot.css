@@ -60,15 +60,15 @@ ul { margin: 0; padding: 0; list-style: none; }
 .container { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 22px; }
 .section { padding: 72px 0; }
 .section__head { text-align: center; max-width: 760px; margin: 0 auto 44px; }
-.section__head .eyebrow { display: inline-flex; align-items: center; gap: 10px; }
-.section__head h2 { font-size: clamp(28px, 4vw, 44px); text-transform: uppercase; letter-spacing: .5px; }
+.section__head .eyebrow { display: inline-flex; align-items: center; gap: 12px; margin-bottom: 18px; }
+.section__head h2 { font-size: clamp(28px, 4vw, 44px); text-transform: uppercase; letter-spacing: .5px; margin-top: 0; }
 .section__head p { color: var(--c-muted); font-size: 18px; margin-top: 6px; }
 
-/* coloured eyebrow icon-chip used before section titles */
-.eyebrow { font-family: var(--font-head); font-weight: 800; text-transform: uppercase; letter-spacing: 1px;
-           font-size: 14px; color: var(--c-dark); }
-.eyebrow i { display: inline-grid; place-items: center; width: 34px; height: 34px; border-radius: 10px;
-             color: #fff; font-size: 15px; }
+/* coloured eyebrow icon-chip used before section titles — sits clearly ABOVE the big heading */
+.eyebrow { font-family: var(--font-head); font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px;
+           font-size: 16px; color: var(--c-dark); margin-bottom: 16px; }
+.eyebrow i { display: inline-grid; place-items: center; width: 46px; height: 46px; border-radius: 13px;
+             color: #fff; font-size: 21px; box-shadow: var(--shadow-sm); }
 .eyebrow--coral i { background: var(--c-coral); }
 .eyebrow--blue  i { background: var(--c-blue); }
 .eyebrow--gold  i { background: var(--c-gold); }
