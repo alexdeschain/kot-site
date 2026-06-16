@@ -208,10 +208,16 @@ ul { margin: 0; padding: 0; list-style: none; }
 /* =========================================================================
    PARTNERS
    ========================================================================= */
+/* centred flex-wrap so the last (incomplete) row is centred instead of leaving a lone
+   orphan in the corner. 11 logos → 4 + 4 + 3, last row sits centred. */
 .partners__grid {
-    display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px;
+    display: flex; flex-wrap: wrap; gap: 20px;
+    justify-content: center;
 }
 .partner {
+    /* 4 per row on desktop: (100% - 3 gaps) / 4 */
+    flex: 0 1 calc((100% - 3 * 20px) / 4);
+    max-width: calc((100% - 3 * 20px) / 4);
     background: #fff; border-radius: 18px;
     height: 132px;                       /* uniform card height — every logo gets the same box */
     display: grid; place-items: center; padding: 20px 22px; box-shadow: var(--shadow-sm);
@@ -310,7 +316,8 @@ ul { margin: 0; padding: 0; list-style: none; }
    ========================================================================= */
 @media (max-width: 980px) {
     .about__grid { grid-template-columns: 1fr; gap: 18px; }
-    .partners__grid { grid-template-columns: repeat(3, 1fr); }
+    /* 3 per row → 11 = 3+3+3+2, last row centred */
+    .partner { flex-basis: calc((100% - 2 * 20px) / 3); max-width: calc((100% - 2 * 20px) / 3); }
     .social__grid { grid-template-columns: repeat(3, 1fr); }
 }
 @media (max-width: 760px) {
@@ -329,6 +336,7 @@ ul { margin: 0; padding: 0; list-style: none; }
     .nav, .nav.is-stuck { background: rgba(255,255,255,.96); box-shadow: 0 6px 24px -12px rgba(53,51,52,.4); }
 }
 @media (max-width: 520px) {
-    .partners__grid { grid-template-columns: repeat(2, 1fr); }
+    /* 2 per row → 11 = 5×2 + 1, last card centred by flex justify-content */
+    .partner { flex-basis: calc((100% - 20px) / 2); max-width: calc((100% - 20px) / 2); height: 116px; }
     .social__grid { grid-template-columns: repeat(2, 1fr); }
 }
