@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <!-- mark JS-enabled before paint so reveal animations only apply with JS (content stays visible otherwise) -->
+    <script>document.documentElement.className += ' js';</script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>КОТ — ведущее онлайн-СМИ о животных и зоозащите</title>
+    <meta name="description"
+        content="«КОТ» — ведущее онлайн-СМИ в России, полностью посвящённое животным и зоозащите: смешные видео, расследования и советы по уходу за питомцами." />
+    <meta name="author" content="КОТ Медиа" />
+    <meta name="theme-color" content="#93bcda" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="КОТ — онлайн-СМИ о животных и зоозащите" />
+    <meta property="og:description"
+        content="Смешные видео с животными, большие расследования о зоозащите и советы по уходу за питомцами." />
+    <meta property="og:image" content="assets/img/kot/header.png" />
+
+    <!-- Icons (self-hosted FontAwesome 6 — no external CDN dependency) -->
+    <link rel="icon" type="image/png" href="assets/img/kot/logo-white.png" />
+    <link rel="stylesheet" href="assets/fontawesome/css/all.min.css" />
+
+    <!-- Brand styles -->
+    <link rel="stylesheet" href="assets/css/kot.css" />
+</head>
+
+<body>
+    <span id="top"></span>
+
+    <!-- =========================== HEADER =========================== -->
+    <header class="site-top">
+        <!-- Illustrated brand banner (animals + КО+ logo) -->
+        <div class="hero-illustration" role="img" aria-label="КОТ — иллюстрация с животными">
+            <div class="hero-social">
+                <a href="https://ok.ru/kotvideo" target="_blank" rel="noopener" aria-label="Одноклассники"><i class="fab fa-odnoklassniki"></i></a>
+                <a href="https://t.me/kot_media" target="_blank" rel="noopener" aria-label="Telegram"><i class="fab fa-telegram-plane"></i></a>
+                <a href="https://likee.video/p/W5Vw5w" target="_blank" rel="noopener" aria-label="Likee"><i class="fas fa-heart"></i></a>
+                <a href="https://vk.com/kot_media" target="_blank" rel="noopener" aria-label="ВКонтакте"><i class="fab fa-vk"></i></a>
+            </div>
+        </div>
+
+        <!-- Sticky anchor navigation -->
+        <nav class="nav" id="nav" aria-label="Основная навигация">
+            <div class="container nav__inner">
+                <a class="nav__logo" href="#top" aria-label="КОТ — наверх">
+                    <img src="assets/img/kot/logo-white.png" alt="КОТ" />
+                </a>
+                <div class="nav__links" id="navLinks">
+                    <a href="#about">О нас</a>
+                    <a href="#news">Новости</a>
+                    <a href="#video">Видео</a>
+                    <a href="#partners">Партнёры</a>
+                    <a href="#social">Соцсети</a>
+                </div>
+                <button class="nav__toggle" id="navToggle" aria-label="Меню" aria-expanded="false">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- =========================== О НАС =========================== -->
+        <section class="section" id="about">
+            <div class="container reveal">
+                <div class="about__grid">
+                    <div>
+                        <span class="eyebrow eyebrow--coral"><i class="fas fa-paw"></i> О нас</span>
+                        <h2>Всё о животных<br>и зоозащите</h2>
+                    </div>
+                    <div>
+                        <p class="about__lead">«КОТ» — это ведущее онлайн-СМИ в России, полностью посвящённое
+                            животным и зоозащите.</p>
+                        <p>У нас можно найти и смешные видео с попугаями, и большие расследования о плохом
+                            обращении с животными, а ещё узнать, как правильно общаться с вашими питомцами.
+                            Мы сотрудничаем с крупнейшими зоозащитными организациями, приютами и ветеринарами.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================== ВИДЕО (баннеры) =========================== -->
+        <section class="section section--wash" id="video">
+            <div class="container">
+                <div class="section__head reveal">
+                    <span class="eyebrow eyebrow--coral"><i class="fas fa-play"></i> Видео</span>
+                    <h2>Наши спецпроекты</h2>
+                    <p>Смотрите большие видеопроекты «КОТ» на любимых площадках.</p>
+                </div>
+                <div class="banners reveal">
+                    <a class="banner" href="https://ok.ru/video/3582264085093" target="_blank" rel="noopener"
+                        aria-label="КОТ ИСТОРИИ — смотреть в Одноклассниках">
+                        <img src="assets/img/kot/banner-stories.png" alt="КОТ ИСТОРИИ — спецпроект" />
+                        <span class="banner__play"><i class="fas fa-play"></i></span>
+                    </a>
+                    <a class="banner" href="https://vkvideo.ru/playlist/-170497734_2" target="_blank" rel="noopener"
+                        aria-label="СУПЕРВЕТ — смотреть плейлист во ВКонтакте">
+                        <img src="assets/img/kot/banner-supervet.png" alt="СУПЕРВЕТ — спецпроект" />
+                        <span class="banner__play"><i class="fas fa-play"></i></span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================== НОВОСТИ (VK) =========================== -->
+        <section class="section" id="news">
+            <div class="container">
+                <div class="section__head reveal">
+                    <span class="eyebrow eyebrow--blue"><i class="fas fa-newspaper"></i> Новости</span>
+                    <h2>Лента ВКонтакте</h2>
+                    <p>Свежие публикации сообщества «КОТ» во ВКонтакте.</p>
+                </div>
+                <div class="news__embed reveal">
+                    <!-- VK community widget mounts here -->
+                    <div id="vk_groups"></div>
+                    <!-- Fallback (also used if the widget fails / JS disabled) -->
+                    <div id="vk-fallback" class="news__fallback" hidden>
+                        <p>Лента не загрузилась — читайте нас напрямую:</p>
+                        <a class="btn btn--blue" href="https://vk.com/kot_media" target="_blank" rel="noopener">
+                            <i class="fab fa-vk"></i> Открыть сообщество ВКонтакте
+                        </a>
+                    </div>
+                    <noscript>
+                        <div class="news__fallback">
+                            <a class="btn btn--blue" href="https://vk.com/kot_media" target="_blank" rel="noopener">
+                                <i class="fab fa-vk"></i> Читать новости во ВКонтакте
+                            </a>
+                        </div>
+                    </noscript>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================== ПАРТНЁРЫ =========================== -->
+        <section class="section section--wash" id="partners">
+            <div class="container">
+                <div class="section__head reveal">
+                    <span class="eyebrow eyebrow--gold"><i class="fas fa-handshake"></i> Наши партнёры</span>
+                    <h2>Нам доверяют</h2>
+                    <p>Мы сотрудничаем с крупнейшими зоозащитными организациями, приютами и ветеринарами.</p>
+                </div>
+                <div class="partners__grid reveal">
+                    <div class="partner"><img src="assets/img/kot/partners/vk.png" alt="ВКонтакте" loading="lazy"></div>
+                    <div class="partner"><img src="assets/img/kot/partners/odnoklassniki.png" alt="Одноклассники" loading="lazy"></div>
+                    <div class="partner"><img src="assets/img/kot/partners/moscow-transport.png" alt="Московский транспорт" loading="lazy"></div>
+                    <div class="partner"><img src="assets/img/kot/partners/zemlya-leoparda.png" alt="Земля леопарда" loading="lazy"></div>
+                    <div class="partner"><img src="assets/img/kot/partners/amurskiy-tigr.png" alt="Центр Амурский тигр" loading="lazy"></div>
+                    <div class="partner"><img src="assets/img/kot/partners/voices4animals.png" alt="Голоса за животных" loading="lazy"></div>
+                    <div class="partner"><img src="assets/img/kot/partners/yuna.png" alt="Юна" loading="lazy"></div>
+                    <div class="partner"><img src="assets/img/kot/partners/nika.png" alt="Ника" loading="lazy"></div>
+                    <div class="partner"><img src="assets/img/kot/partners/pitomtsy-v-moskve.png" alt="Питомцы в Москве" loading="lazy"></div>
+                    <div class="partner"><img src="assets/img/kot/partners/moy-rayon.png" alt="Мой район" loading="lazy"></div>
+                    <div class="partner"><img src="assets/img/kot/partners/bystryy-pes.png" alt="Быстрый пёс" loading="lazy"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================== КОТ В СОЦСЕТЯХ =========================== -->
+        <section class="section" id="social">
+            <div class="container">
+                <div class="section__head reveal">
+                    <span class="eyebrow eyebrow--lilac"><i class="fas fa-share-nodes"></i> КОТ в соцсетях</span>
+                    <h2>Подписывайтесь на нас</h2>
+                    <p>Мы есть во всех соцсетях и мессенджерах — выбирайте удобную площадку.</p>
+                </div>
+                <div class="social__grid reveal">
+                    <a class="social-card social-card--vk" href="https://vk.com/kot_media" target="_blank" rel="noopener">
+                        <i class="fab fa-vk"></i><span>ВКонтакте</span>
+                    </a>
+                    <a class="social-card social-card--ok" href="https://ok.ru/kotvideo" target="_blank" rel="noopener">
+                        <i class="fab fa-odnoklassniki"></i><span>Одноклассники</span>
+                    </a>
+                    <a class="social-card social-card--likee" href="https://likee.video/p/W5Vw5w" target="_blank" rel="noopener">
+                        <i class="fas fa-heart"></i><span>Likee</span>
+                    </a>
+                    <a class="social-card social-card--max" href="https://max.ru/kot_media" target="_blank" rel="noopener">
+                        <i class="fas fa-comment-dots"></i><span>Max</span>
+                    </a>
+                    <a class="social-card social-card--tg" href="https://t.me/kot_media" target="_blank" rel="noopener">
+                        <i class="fab fa-telegram-plane"></i><span>Telegram</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- =========================== FOOTER =========================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__inner">
+                <div class="footer__brand">
+                    <img src="assets/img/kot/logo-white.png" alt="КОТ" />
+                    <p>Ведущее онлайн-СМИ в России о животных и зоозащите.</p>
+                </div>
+                <div class="footer__social">
+                    <a href="https://vk.com/kot_media" target="_blank" rel="noopener" aria-label="ВКонтакте"><i class="fab fa-vk"></i></a>
+                    <a href="https://ok.ru/kotvideo" target="_blank" rel="noopener" aria-label="Одноклассники"><i class="fab fa-odnoklassniki"></i></a>
+                    <a href="https://t.me/kot_media" target="_blank" rel="noopener" aria-label="Telegram"><i class="fab fa-telegram-plane"></i></a>
+                    <a href="https://likee.video/p/W5Vw5w" target="_blank" rel="noopener" aria-label="Likee"><i class="fas fa-heart"></i></a>
+                    <a href="https://max.ru/kot_media" target="_blank" rel="noopener" aria-label="Max"><i class="fas fa-comment-dots"></i></a>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <span>© 2026 КОТ Медиа</span>
+                <span class="links">
+                    <a href="#about">О нас</a>
+                    <a href="#news">Новости</a>
+                    <a href="#video">Видео</a>
+                    <a href="#partners">Партнёры</a>
+                    <a href="#social">Соцсети</a>
+                </span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/kot.js"></script>
+</body>
+
+</html>
