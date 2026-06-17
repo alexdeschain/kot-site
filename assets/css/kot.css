@@ -87,7 +87,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 .hero-illustration {
     position: relative;
     width: 100%;
-    background: #93bcda url('../img/kot/header.jpg?v=14') center top / cover no-repeat;
+    background: #93bcda url('../img/kot/header.jpg?v=15') center top / cover no-repeat;
     /* aspect ratio of header.jpg ≈ 3840×697 (rendered from PDF @600 DPI) → keep its shape */
     aspect-ratio: 2400 / 436;
     min-height: 150px;
@@ -255,6 +255,9 @@ ul { margin: 0; padding: 0; list-style: none; }
     padding: 40px 28px; box-shadow: var(--shadow-sm);
     display: flex; flex-direction: column; align-items: center; gap: 8px;
 }
+/* explicit display:flex above would otherwise override the HTML [hidden] attribute,
+   leaving the card visible under the live feed — keep hidden winning */
+.news-card[hidden] { display: none; }
 .news-card__logo { font-size: 48px; color: #0077ff; margin-bottom: 6px; }
 .news-card__title { font-family: var(--font-head); font-weight: 900; font-size: 22px;
                     color: var(--c-dark); margin: 0; }
