@@ -87,7 +87,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 .hero-illustration {
     position: relative;
     width: 100%;
-    background: #93bcda url('../img/kot/header.jpg?v=13') center top / cover no-repeat;
+    background: #93bcda url('../img/kot/header.jpg?v=14') center top / cover no-repeat;
     /* aspect ratio of header.jpg ≈ 3840×697 (rendered from PDF @600 DPI) → keep its shape */
     aspect-ratio: 2400 / 436;
     min-height: 150px;

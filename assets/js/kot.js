@@ -16,7 +16,7 @@
        (VK.init throws "called without an apiId" otherwise — onlyWidgets doesn't waive it).
        Create one free at vk.com/apps?act=manage → Create app → Website/Embed, then paste
        the numeric App ID here. While it's 0 we show the designed «сообщество» card instead. */
-    var VK_APP_ID = 0;
+    var VK_APP_ID = 52201531;
 
     /* ===================== VK community widget ===================== */
     function showVkFallback() {
