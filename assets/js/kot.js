@@ -12,6 +12,12 @@
        the СУПЕРВЕТ playlist URL (vkvideo.ru/playlist/-170497734_2). ---- */
     var VK_GROUP_ID = 170497734;
 
+    /* VK requires a registered application id to render the community feed widget
+       (VK.init throws "called without an apiId" otherwise — onlyWidgets doesn't waive it).
+       Create one free at vk.com/apps?act=manage → Create app → Website/Embed, then paste
+       the numeric App ID here. While it's 0 we show the designed «сообщество» card instead. */
+    var VK_APP_ID = 0;
+
     /* ===================== VK community widget ===================== */
     function showVkFallback() {
         var el = document.getElementById('vk-fallback');
@@ -21,55 +27,63 @@
         if (mount && !mount.childNodes.length) mount.style.display = 'none';
     }
 
+    function mountVkGroup() {
+        var mount = document.getElementById('vk_groups');
+        if (!mount || typeof VK === 'undefined' || !VK.Widgets || !VK.Widgets.Group) {
+            showVkFallback();
+            return;
+        }
+        try {
+            // mode 4 = posts feed; VK.init was already called in vkAsyncInit (required first,
+            // otherwise the feed can show the logged-in viewer's own page, not the group).
+            VK.Widgets.Group('vk_groups', {
+                mode: 4,
+                wide: 1,
+                width: 'auto',
+                height: 600,
+                color1: 'FFFFFF',
+                color2: '353334',
+                color3: '93BCDA'
+            }, VK_GROUP_ID);
+        } catch (e) {
+            showVkFallback();
+        }
+    }
+
     function initVkWidget() {
         var mount = document.getElementById('vk_groups');
         if (!mount) return;
 
-        var loaded = false;
+        // No VK App ID configured → don't attempt the widget (it would just throw and
+        // flash a broken state). Show the designed community card straight away.
+        if (!VK_APP_ID) {
+            showVkFallback();
+            return;
+        }
+
+        // The reliable VK pattern: define window.vkAsyncInit BEFORE loading openapi.js.
+        // VK calls it only when the API (incl. VK.Widgets) is fully ready — onload alone
+        // is NOT enough (VK.Widgets may not exist yet at script onload).
+        window.vkAsyncInit = function () {
+            VK.init({ apiId: VK_APP_ID, onlyWidgets: true });
+            VK._kotInited = true;
+            mountVkGroup();
+        };
+
         var s = document.createElement('script');
         s.src = 'https://vk.com/js/api/openapi.js?169';
         s.async = true;
 
-        // Hard timeout: if the script or render hasn't produced content, show fallback.
+        // Hard timeout: if vkAsyncInit never fires or the widget renders nothing, fall back.
         var timer = setTimeout(function () {
-            if (!loaded || !mount.childNodes.length) showVkFallback();
-        }, 6000);
+            if (!mount.childNodes.length) showVkFallback();
+        }, 7000);
+        // clear the timeout once content appears
+        var poll = setInterval(function () {
+            if (mount.childNodes.length) { clearTimeout(timer); clearInterval(poll); }
+        }, 500);
+        setTimeout(function () { clearInterval(poll); }, 8000);
 
-        s.onload = function () {
-            try {
-                if (typeof VK === 'undefined' || !VK.Widgets || !VK.Widgets.Group) {
-                    clearTimeout(timer);
-                    showVkFallback();
-                    return;
-                }
-                // IMPORTANT: VK.init must run before any widget. onlyWidgets:true is the
-                // widget-only mode (no registered app id needed). Without init the feed
-                // widget can latch onto the logged-in viewer's session and show THEIR page
-                // instead of the КОТ group — calling init fixes that.
-                if (!VK._kotInited) {
-                    VK.init({ apiId: 0, onlyWidgets: true });
-                    VK._kotInited = true;
-                }
-                // mode 4 = posts feed with comments/likes; responsive width
-                VK.Widgets.Group('vk_groups', {
-                    mode: 4,
-                    width: 'auto',
-                    height: 600,
-                    color1: 'FFFFFF',
-                    color2: '353334',
-                    color3: '93BCDA'
-                }, VK_GROUP_ID);
-                loaded = true;
-                // verify render shortly after
-                setTimeout(function () {
-                    clearTimeout(timer);
-                    if (!mount.childNodes.length) showVkFallback();
-                }, 2500);
-            } catch (e) {
-                clearTimeout(timer);
-                showVkFallback();
-            }
-        };
         s.onerror = function () {
             clearTimeout(timer);
             showVkFallback();

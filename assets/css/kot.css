@@ -87,8 +87,8 @@ ul { margin: 0; padding: 0; list-style: none; }
 .hero-illustration {
     position: relative;
     width: 100%;
-    background: #93bcda url('../img/kot/header.png?v=11') center top / cover no-repeat;
-    /* aspect ratio of header.png ≈ 3200×581 → keep its shape, min height on small screens */
+    background: #93bcda url('../img/kot/header.jpg?v=13') center top / cover no-repeat;
+    /* aspect ratio of header.jpg ≈ 3840×697 (rendered from PDF @600 DPI) → keep its shape */
     aspect-ratio: 2400 / 436;
     min-height: 150px;
 }
@@ -187,25 +187,32 @@ ul { margin: 0; padding: 0; list-style: none; }
 }
 .video-embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; display: block; }
 
-/* click-through poster card used until a real VK embed (with hash) is pasted in */
+/* compact click-through preview card for the playlist (not a full-width black screen) */
+.video-embed--card { max-width: 460px; aspect-ratio: 16 / 10; margin: 0 auto 40px; }
 .video-card {
     position: absolute; inset: 0; display: flex; flex-direction: column;
-    align-items: center; justify-content: center; gap: 14px; text-align: center;
-    color: #fff;
+    align-items: center; justify-content: center; gap: 10px; text-align: center;
+    color: #fff; padding: 18px;
     background:
-        radial-gradient(120% 120% at 50% 0%, rgba(147,188,218,.35), rgba(53,51,52,0) 60%),
+        radial-gradient(120% 120% at 50% 35%, rgba(147,188,218,.30), rgba(53,51,52,0) 62%),
         linear-gradient(135deg, #3b3940, #2b2a2e);
+}
+.video-card::after {
+    /* faint "playlist" hint: stacked-cards edge on the right */
+    content: ''; position: absolute; top: 14px; right: 14px; width: 34px; height: 26px;
+    border-radius: 5px; border: 2px solid rgba(255,255,255,.28);
+    box-shadow: 6px 6px 0 -2px rgba(255,255,255,.14), 12px 12px 0 -4px rgba(255,255,255,.08);
 }
 .video-card:hover { color: #fff; }
 .video-card__play {
-    width: 84px; height: 84px; border-radius: 50%; display: grid; place-items: center;
-    background: var(--c-coral); color: #fff; font-size: 30px; padding-left: 5px;
+    width: 58px; height: 58px; border-radius: 50%; display: grid; place-items: center;
+    background: var(--c-coral); color: #fff; font-size: 20px; padding-left: 4px;
     box-shadow: var(--shadow); transition: transform .2s, background .2s;
 }
-.video-card:hover .video-card__play { transform: scale(1.08); background: #e07474; }
+.video-card:hover .video-card__play { transform: scale(1.1); background: #e07474; }
 .video-card__label { font-family: var(--font-head); font-weight: 900; text-transform: uppercase;
-                     letter-spacing: .5px; font-size: clamp(22px, 3vw, 30px); }
-.video-card__sub { color: #c7d6e6; font-size: 15px; }
+                     letter-spacing: .5px; font-size: 22px; }
+.video-card__sub { color: #c7d6e6; font-size: 14px; }
 
 .video-subhead {
     text-align: center; text-transform: uppercase; letter-spacing: .5px;
@@ -239,9 +246,19 @@ ul { margin: 0; padding: 0; list-style: none; }
 /* =========================================================================
    NEWS (VK widget)
    ========================================================================= */
-.news__embed { max-width: 640px; margin: 0 auto; min-height: 200px; }
+.news__embed { max-width: 640px; margin: 0 auto; }
 .news__embed #vk_groups { display: flex; justify-content: center; }
-.news__fallback { text-align: center; padding: 18px; }
+
+/* designed community card (shown until the live VK feed is configured) */
+.news-card {
+    text-align: center; background: #fff; border-radius: var(--radius);
+    padding: 40px 28px; box-shadow: var(--shadow-sm);
+    display: flex; flex-direction: column; align-items: center; gap: 8px;
+}
+.news-card__logo { font-size: 48px; color: #0077ff; margin-bottom: 6px; }
+.news-card__title { font-family: var(--font-head); font-weight: 900; font-size: 22px;
+                    color: var(--c-dark); margin: 0; }
+.news-card__sub { color: var(--c-muted); font-size: 16px; margin: 0 0 14px; max-width: 420px; }
 
 /* =========================================================================
    PARTNERS

@@ -17,14 +17,14 @@
     <meta property="og:title" content="КОТ — ведущее российское онлайн-СМИ о животных и зоозащите" />
     <meta property="og:description"
         content="Смешные видео с животными, большие расследования о зоозащите и советы по уходу за питомцами." />
-    <meta property="og:image" content="assets/img/kot/header.png" />
+    <meta property="og:image" content="assets/img/kot/header.jpg" />
 
     <!-- Icons (self-hosted FontAwesome 6 — no external CDN dependency) -->
     <link rel="icon" type="image/png" href="assets/img/kot/logo-white.png" />
     <link rel="stylesheet" href="assets/fontawesome/css/all.min.css" />
 
     <!-- Brand styles -->
-    <link rel="stylesheet" href="assets/css/kot.css?v=11" />
+    <link rel="stylesheet" href="assets/css/kot.css?v=13" />
 </head>
 
 <body>
@@ -48,7 +48,7 @@
     <nav class="nav" id="nav" aria-label="Основная навигация">
         <div class="container nav__inner">
             <a class="nav__logo" href="#top" aria-label="КОТ — наверх">
-                <img src="assets/img/kot/logo-white.png?v=11" alt="КОТ" />
+                <img src="assets/img/kot/logo-white.png?v=13" alt="КОТ" />
             </a>
             <div class="nav__links" id="navLinks">
                 <a href="#news">Новости</a>
@@ -73,19 +73,23 @@
                     <p>Свежие публикации сообщества «КОТ» во ВКонтакте.</p>
                 </div>
                 <div class="news__embed reveal">
-                    <!-- VK community widget mounts here -->
+                    <!-- VK community feed mounts here (needs a VK App ID — see kot.js VK_APP_ID) -->
                     <div id="vk_groups"></div>
-                    <!-- Fallback (also used if the widget fails / JS disabled) -->
-                    <div id="vk-fallback" class="news__fallback" hidden>
-                        <p>Лента не загрузилась — читайте нас напрямую:</p>
+                    <!-- Designed card shown when the live feed isn't available -->
+                    <div id="vk-fallback" class="news-card" hidden>
+                        <i class="fab fa-vk news-card__logo"></i>
+                        <p class="news-card__title">Сообщество «КОТ» во ВКонтакте</p>
+                        <p class="news-card__sub">Свежие новости, видео и истории о животных — каждый день.</p>
                         <a class="btn btn--blue" href="https://vk.com/kot_media" target="_blank" rel="noopener">
-                            <i class="fab fa-vk"></i> Открыть сообщество ВКонтакте
+                            <i class="fab fa-vk"></i> Перейти в сообщество
                         </a>
                     </div>
                     <noscript>
-                        <div class="news__fallback">
+                        <div class="news-card">
+                            <i class="fab fa-vk news-card__logo"></i>
+                            <p class="news-card__title">Сообщество «КОТ» во ВКонтакте</p>
                             <a class="btn btn--blue" href="https://vk.com/kot_media" target="_blank" rel="noopener">
-                                <i class="fab fa-vk"></i> Читать новости во ВКонтакте
+                                <i class="fab fa-vk"></i> Перейти в сообщество
                             </a>
                         </div>
                     </noscript>
@@ -206,7 +210,7 @@
         <div class="container">
             <div class="footer__inner">
                 <div class="footer__brand">
-                    <img src="assets/img/kot/logo-white.png?v=11" alt="КОТ" />
+                    <img src="assets/img/kot/logo-white.png?v=13" alt="КОТ" />
                     <p>Ведущее российское онлайн-СМИ о животных и зоозащите.</p>
                 </div>
                 <div class="footer__social">
@@ -230,7 +234,7 @@
         </div>
     </footer>
 
-    <script src="assets/js/kot.js?v=11"></script>
+    <script src="assets/js/kot.js?v=13"></script>
 </body>
 
 </html>
