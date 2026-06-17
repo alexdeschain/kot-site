@@ -98,7 +98,7 @@ ul { margin: 0; padding: 0; list-style: none; }
     width: 100%;
     max-width: 1920px;                 /* never wider than native → never upscaled */
     aspect-ratio: 1920 / 409;          /* matches header.jpg → no squash at any width */
-    background: url('../img/kot/header.jpg?v=17') center top / cover no-repeat;
+    background: url('../img/kot/header.jpg?v=18') center top / cover no-repeat;
 }
 /* The social icons are part of the header illustration (baked into header.png).
    We lay INVISIBLE clickable hotspots exactly over them — clean visuals + working links.

@@ -34,10 +34,11 @@
             return;
         }
         try {
-            // mode 4 = posts feed; VK.init was already called in vkAsyncInit (required first,
-            // otherwise the feed can show the logged-in viewer's own page, not the group).
+            // mode 1 = the GROUP's wall posts — always shows this community regardless of who
+            // is logged in. (mode 4 = personalised "news" feed, which for a logged-in VK user
+            // rendered THEIR own feed instead of the КОТ group — that was the bug.)
             VK.Widgets.Group('vk_groups', {
-                mode: 4,
+                mode: 1,
                 wide: 1,
                 width: 'auto',
                 height: 600,
