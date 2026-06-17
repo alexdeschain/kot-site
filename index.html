@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="assets/fontawesome/css/all.min.css" />
 
     <!-- Brand styles -->
-    <link rel="stylesheet" href="assets/css/kot.css?v=8" />
+    <link rel="stylesheet" href="assets/css/kot.css?v=10" />
 </head>
 
 <body>
@@ -48,13 +48,13 @@
     <nav class="nav" id="nav" aria-label="Основная навигация">
         <div class="container nav__inner">
             <a class="nav__logo" href="#top" aria-label="КОТ — наверх">
-                <img src="assets/img/kot/logo-white.png?v=8" alt="КОТ" />
+                <img src="assets/img/kot/logo-white.png?v=10" alt="КОТ" />
             </a>
             <div class="nav__links" id="navLinks">
-                <a href="#about">О нас</a>
                 <a href="#news">Новости</a>
                 <a href="#video">Видео</a>
                 <a href="#partners">Партнёры</a>
+                <a href="#about">О нас</a>
                 <a href="#social">Соцсети</a>
             </div>
             <button class="nav__toggle" id="navToggle" aria-label="Меню" aria-expanded="false">
@@ -64,48 +64,6 @@
     </nav>
 
     <main>
-        <!-- =========================== О НАС =========================== -->
-        <section class="section" id="about">
-            <div class="container reveal">
-                <div class="about__grid">
-                    <div>
-                        <span class="eyebrow eyebrow--coral"><i class="fas fa-paw"></i> О нас</span>
-                        <h2>Всё о животных<br>и зоозащите</h2>
-                    </div>
-                    <div>
-                        <p class="about__lead">«КОТ» — это ведущее российское онлайн-СМИ, полностью посвящённое
-                            животным и зоозащите.</p>
-                        <p>У нас можно найти и смешные видео с попугаями, и большие расследования о плохом
-                            обращении с животными, а ещё узнать, как правильно общаться с вашими питомцами.
-                            Мы сотрудничаем с крупнейшими зоозащитными организациями, приютами и ветеринарами.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- =========================== ВИДЕО (баннеры) =========================== -->
-        <section class="section section--wash" id="video">
-            <div class="container">
-                <div class="section__head reveal">
-                    <span class="eyebrow eyebrow--coral"><i class="fas fa-play"></i> Видео</span>
-                    <h2>Наши спецпроекты</h2>
-                    <p>Смотрите большие видеопроекты «КОТ» на любимых площадках.</p>
-                </div>
-                <div class="banners reveal">
-                    <a class="banner" href="https://ok.ru/video/3582264085093" target="_blank" rel="noopener"
-                        aria-label="КОТ ИСТОРИИ — смотреть в Одноклассниках">
-                        <img src="assets/img/kot/banner-stories.png" alt="КОТ ИСТОРИИ — спецпроект" />
-                        <span class="banner__play"><i class="fas fa-play"></i></span>
-                    </a>
-                    <a class="banner" href="https://vkvideo.ru/playlist/-170497734_2" target="_blank" rel="noopener"
-                        aria-label="СУПЕРВЕТ — смотреть плейлист во ВКонтакте">
-                        <img src="assets/img/kot/banner-supervet.png" alt="СУПЕРВЕТ — спецпроект" />
-                        <span class="banner__play"><i class="fas fa-play"></i></span>
-                    </a>
-                </div>
-            </div>
-        </section>
-
         <!-- =========================== НОВОСТИ (VK) =========================== -->
         <section class="section" id="news">
             <div class="container">
@@ -135,8 +93,47 @@
             </div>
         </section>
 
+        <!-- =========================== ВИДЕО =========================== -->
+        <section class="section section--wash" id="video">
+            <div class="container">
+                <div class="section__head reveal">
+                    <span class="eyebrow eyebrow--coral"><i class="fas fa-play"></i> Видео</span>
+                    <h2>Наши сюжеты</h2>
+                    <p>Смотрите свежие сюжеты и большие спецпроекты «КОТ».</p>
+                </div>
+
+                <!-- VK video playlist «наши сюжеты» (vkvideo.ru/playlist/-170497734_3).
+                     VK video_ext.php requires a VK-generated hash to embed; until the exact
+                     embed code is provided, this is a click-through preview card.
+                     To enable the inline player, paste VK's iframe (with its hash) inside
+                     #vk-playlist-mount and remove this card. -->
+                <div id="vk-playlist-mount" class="video-embed video-embed--card reveal">
+                    <a class="video-card" href="https://vkvideo.ru/playlist/-170497734_3" target="_blank"
+                        rel="noopener" aria-label="Наши сюжеты — смотреть плейлист во ВКонтакте">
+                        <span class="video-card__play"><i class="fas fa-play"></i></span>
+                        <span class="video-card__label">Наши сюжеты</span>
+                        <span class="video-card__sub">Смотреть плейлист во ВКонтакте</span>
+                    </a>
+                </div>
+
+                <h3 class="video-subhead reveal">Спецпроекты</h3>
+                <div class="banners reveal">
+                    <a class="banner" href="https://ok.ru/video/3582264085093" target="_blank" rel="noopener"
+                        aria-label="КОТ ИСТОРИИ — смотреть в Одноклассниках">
+                        <img src="assets/img/kot/banner-stories.png" alt="КОТ ИСТОРИИ — спецпроект" />
+                        <span class="banner__play"><i class="fas fa-play"></i></span>
+                    </a>
+                    <a class="banner" href="https://vkvideo.ru/playlist/-170497734_2" target="_blank" rel="noopener"
+                        aria-label="СУПЕРВЕТ — смотреть плейлист во ВКонтакте">
+                        <img src="assets/img/kot/banner-supervet.png" alt="СУПЕРВЕТ — спецпроект" />
+                        <span class="banner__play"><i class="fas fa-play"></i></span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
         <!-- =========================== ПАРТНЁРЫ =========================== -->
-        <section class="section section--wash" id="partners">
+        <section class="section" id="partners">
             <div class="container">
                 <div class="section__head reveal">
                     <span class="eyebrow eyebrow--gold"><i class="fas fa-handshake"></i> Наши партнёры</span>
@@ -155,6 +152,25 @@
                     <div class="partner"><img src="assets/img/kot/partners/pitomtsy-v-moskve.png" alt="Питомцы в Москве" loading="lazy"></div>
                     <div class="partner"><img src="assets/img/kot/partners/moy-rayon.png" alt="Мой район" loading="lazy"></div>
                     <div class="partner"><img src="assets/img/kot/partners/bystryy-pes.png" alt="Быстрый пёс" loading="lazy"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================== О НАС =========================== -->
+        <section class="section section--wash" id="about">
+            <div class="container reveal">
+                <div class="about__grid">
+                    <div>
+                        <span class="eyebrow eyebrow--coral"><i class="fas fa-paw"></i> О нас</span>
+                        <h2>Всё о животных<br>и зоозащите</h2>
+                    </div>
+                    <div>
+                        <p class="about__lead">«КОТ» — это ведущее российское онлайн-СМИ, полностью посвящённое
+                            животным и зоозащите.</p>
+                        <p>У нас можно найти и смешные видео с попугаями, и большие расследования о плохом
+                            обращении с животными, а ещё узнать, как правильно общаться с вашими питомцами.
+                            Мы сотрудничаем с крупнейшими зоозащитными организациями, приютами и ветеринарами.</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -193,7 +209,7 @@
         <div class="container">
             <div class="footer__inner">
                 <div class="footer__brand">
-                    <img src="assets/img/kot/logo-white.png?v=8" alt="КОТ" />
+                    <img src="assets/img/kot/logo-white.png?v=10" alt="КОТ" />
                     <p>Ведущее российское онлайн-СМИ о животных и зоозащите.</p>
                 </div>
                 <div class="footer__social">
@@ -207,17 +223,17 @@
             <div class="footer__bottom">
                 <span>© 2026 КОТ</span>
                 <span class="links">
-                    <a href="#about">О нас</a>
                     <a href="#news">Новости</a>
                     <a href="#video">Видео</a>
                     <a href="#partners">Партнёры</a>
+                    <a href="#about">О нас</a>
                     <a href="#social">Соцсети</a>
                 </span>
             </div>
         </div>
     </footer>
 
-    <script src="assets/js/kot.js?v=8"></script>
+    <script src="assets/js/kot.js?v=10"></script>
 </body>
 
 </html>

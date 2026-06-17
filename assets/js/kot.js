@@ -42,6 +42,14 @@
                     showVkFallback();
                     return;
                 }
+                // IMPORTANT: VK.init must run before any widget. onlyWidgets:true is the
+                // widget-only mode (no registered app id needed). Without init the feed
+                // widget can latch onto the logged-in viewer's session and show THEIR page
+                // instead of the КОТ group — calling init fixes that.
+                if (!VK._kotInited) {
+                    VK.init({ apiId: 0, onlyWidgets: true });
+                    VK._kotInited = true;
+                }
                 // mode 4 = posts feed with comments/likes; responsive width
                 VK.Widgets.Group('vk_groups', {
                     mode: 4,

@@ -87,8 +87,8 @@ ul { margin: 0; padding: 0; list-style: none; }
 .hero-illustration {
     position: relative;
     width: 100%;
-    background: #93bcda url('../img/kot/header.png') center top / cover no-repeat;
-    /* aspect ratio of header.png ≈ 2400×436 → keep its shape, min height on small screens */
+    background: #93bcda url('../img/kot/header.png?v=10') center top / cover no-repeat;
+    /* aspect ratio of header.png ≈ 3200×581 → keep its shape, min height on small screens */
     aspect-ratio: 2400 / 436;
     min-height: 150px;
 }
@@ -176,6 +176,41 @@ ul { margin: 0; padding: 0; list-style: none; }
 .about__grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 40px; align-items: center; }
 .about__lead { font-size: 21px; font-weight: 700; color: var(--c-dark); }
 .about__grid h2 { font-size: clamp(28px, 3.6vw, 42px); text-transform: uppercase; }
+
+/* =========================================================================
+   VIDEO — VK playlist embed (responsive 16:9) + sub-heading
+   ========================================================================= */
+.video-embed {
+    position: relative; max-width: 900px; margin: 0 auto 44px;
+    aspect-ratio: 16 / 9; border-radius: var(--radius); overflow: hidden;
+    box-shadow: var(--shadow); background: var(--c-dark);
+}
+.video-embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; display: block; }
+
+/* click-through poster card used until a real VK embed (with hash) is pasted in */
+.video-card {
+    position: absolute; inset: 0; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; gap: 14px; text-align: center;
+    color: #fff;
+    background:
+        radial-gradient(120% 120% at 50% 0%, rgba(147,188,218,.35), rgba(53,51,52,0) 60%),
+        linear-gradient(135deg, #3b3940, #2b2a2e);
+}
+.video-card:hover { color: #fff; }
+.video-card__play {
+    width: 84px; height: 84px; border-radius: 50%; display: grid; place-items: center;
+    background: var(--c-coral); color: #fff; font-size: 30px; padding-left: 5px;
+    box-shadow: var(--shadow); transition: transform .2s, background .2s;
+}
+.video-card:hover .video-card__play { transform: scale(1.08); background: #e07474; }
+.video-card__label { font-family: var(--font-head); font-weight: 900; text-transform: uppercase;
+                     letter-spacing: .5px; font-size: clamp(22px, 3vw, 30px); }
+.video-card__sub { color: #c7d6e6; font-size: 15px; }
+
+.video-subhead {
+    text-align: center; text-transform: uppercase; letter-spacing: .5px;
+    font-size: clamp(20px, 2.6vw, 28px); margin: 0 0 22px; color: var(--c-dark);
+}
 
 /* =========================================================================
    BANNERS (СУПЕРВЕТ / КОТ ИСТОРИИ)
