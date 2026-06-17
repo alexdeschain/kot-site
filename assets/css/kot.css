@@ -83,14 +83,23 @@ ul { margin: 0; padding: 0; list-style: none; }
    ========================================================================= */
 .site-top { position: relative; }
 
-/* The big illustrated banner (animals on hills + logo, baked PNG) */
+/* The illustrated banner. The art is native 1920×430 — to stay CRISP we never scale it
+   ABOVE native width. Outer = brand sky-blue (fills wide screens, same colour as the
+   illustration's sky so the seam is invisible); inner caps the art at 1920px and centres
+   it. Hotspots live in the inner so their % positions track the image, not the viewport. */
 .hero-illustration {
+    width: 100%;
+    background-color: #93bcda;
+    display: flex;
+    justify-content: center;
+}
+.hero-illustration__inner {
     position: relative;
     width: 100%;
-    background: #93bcda url('../img/kot/header.jpg?v=15') center top / cover no-repeat;
-    /* aspect ratio of header.jpg ≈ 3840×697 (rendered from PDF @600 DPI) → keep its shape */
-    aspect-ratio: 2400 / 436;
-    min-height: 150px;
+    max-width: 1920px;                 /* never wider than native → never upscaled */
+    aspect-ratio: 1920 / 430;
+    background: url('../img/kot/header.jpg?v=16') center top / 100% 100% no-repeat;
+    min-height: 132px;
 }
 /* The social icons are part of the header illustration (baked into header.png).
    We lay INVISIBLE clickable hotspots exactly over them — clean visuals + working links.
