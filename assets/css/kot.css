@@ -98,7 +98,7 @@ ul { margin: 0; padding: 0; list-style: none; }
     width: 100%;
     max-width: 1920px;                 /* never wider than native → never upscaled */
     aspect-ratio: 1920 / 409;          /* matches header.jpg → no squash at any width */
-    background: url('../img/kot/header.jpg?v=18') center top / cover no-repeat;
+    background: url('../img/kot/header.jpg?v=19') center top / cover no-repeat;
 }
 /* The social icons are part of the header illustration (baked into header.png).
    We lay INVISIBLE clickable hotspots exactly over them — clean visuals + working links.
@@ -252,23 +252,23 @@ ul { margin: 0; padding: 0; list-style: none; }
 .banner:hover .banner__play i { opacity: 1; transform: scale(1); }
 
 /* =========================================================================
-   NEWS (VK widget)
+   NEWS — community card linking to the VK group
    ========================================================================= */
 .news__embed { max-width: 640px; margin: 0 auto; }
-.news__embed #vk_groups { display: flex; justify-content: center; }
 
-/* designed community card (shown until the live VK feed is configured) */
 .news-card {
     text-align: center; background: #fff; border-radius: var(--radius);
-    padding: 40px 28px; box-shadow: var(--shadow-sm);
+    padding: 44px 28px; box-shadow: var(--shadow-sm);
     display: flex; flex-direction: column; align-items: center; gap: 8px;
+    color: var(--c-text);
+    transition: transform .2s, box-shadow .2s;
 }
-/* explicit display:flex above would otherwise override the HTML [hidden] attribute,
-   leaving the card visible under the live feed — keep hidden winning */
-.news-card[hidden] { display: none; }
-.news-card__logo { font-size: 48px; color: #0077ff; margin-bottom: 6px; }
-.news-card__title { font-family: var(--font-head); font-weight: 900; font-size: 22px;
+.news-card:hover { transform: translateY(-5px); box-shadow: var(--shadow); color: var(--c-text); }
+.news-card__logo { font-size: 52px; color: #0077ff; margin-bottom: 6px; line-height: 1; }
+.news-card__title { font-family: var(--font-head); font-weight: 900; font-size: 23px;
                     color: var(--c-dark); margin: 0; }
+.news-card__sub { color: var(--c-muted); font-size: 16px; margin: 0 0 16px; max-width: 440px; }
+.news-card .btn { pointer-events: none; }  /* whole card is the link; button is visual only */
 .news-card__sub { color: var(--c-muted); font-size: 16px; margin: 0 0 14px; max-width: 420px; }
 
 /* =========================================================================

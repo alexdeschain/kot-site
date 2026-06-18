@@ -12,11 +12,12 @@
        the СУПЕРВЕТ playlist URL (vkvideo.ru/playlist/-170497734_2). ---- */
     var VK_GROUP_ID = 170497734;
 
-    /* VK requires a registered application id to render the community feed widget
-       (VK.init throws "called without an apiId" otherwise — onlyWidgets doesn't waive it).
-       Create one free at vk.com/apps?act=manage → Create app → Website/Embed, then paste
-       the numeric App ID here. While it's 0 we show the designed «сообщество» card instead. */
-    var VK_APP_ID = 52201531;
+    /* VK's JS community widget is unreliable on a static site: mode 4 (feed) renders the
+       logged-in viewer's OWN feed, and mode 1 only shows a cropped group card — and there's
+       no tokenless way to pull the group's posts (wall.get needs an access token; VK has no
+       public RSS). So we deliberately show a clean, designed «сообщество» card that links to
+       the group. Set VK_APP_ID to a numeric App ID only if you later add a backend/proxy. */
+    var VK_APP_ID = 0;
 
     /* ===================== VK community widget ===================== */
     function showVkFallback() {
